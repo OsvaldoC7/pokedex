@@ -7,11 +7,12 @@ export default function PokemonGrid({ type }) {
 
   const [pokemons, setPokemons] = useState([])
   const [damageRelations, setDamageRelations] = useState({})
+  
   useEffect(() => {
-    getPokemons()
+    getPokemonsByType()
   }, [])
 
-  const getPokemons = () => {
+  const getPokemonsByType = () => {
     const url = `${BASE_URL}type/${type}`
     fetch(url).then(res => 
       res.json()
@@ -24,15 +25,15 @@ export default function PokemonGrid({ type }) {
   
   return (
     <div>
-      <h3>{ type }</h3>
+      <h3 className='text-2xl text-semibold'>{ type }</h3>
       <DamageRelations damageRelations={damageRelations} />
-      <ul>
+      <div className='grid grid-cols-3 gap-4'>
         {
           pokemons.map(({pokemon}) => {
             return <PokemonCard key={pokemon.url} name={pokemon.name} url={pokemon.url} />
           })
         }
-      </ul>
+      </div>
     </div>
   )
 }

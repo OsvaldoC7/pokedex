@@ -16,9 +16,9 @@ export default function PokemonCard({ name, url }) {
   }
 
   return (
-    <div>
+    <div className='border border-gray-400 rounded-lg flex flex-col justify-center'>
       <img src={pokemon?.sprites?.front_default} alt={pokemon?.forms?.name} />
-      <h2>{ name }</h2>
+      <h2 className='text-center'>{ name }</h2>
     </div>
   )
 }

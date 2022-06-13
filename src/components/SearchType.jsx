@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-export default function SearchType({ setTypes }) {
+export default function SearchType({ onNewType }) {
 
   const [inputValue, setInputValue] = useState('')
 
   const handleSubmit = e => {
     e.preventDefault()
     if(inputValue.trim().length < 1) return
-    setTypes([inputValue])
+    onNewType(inputValue.trim())
     setInputValue('')
   }
 
