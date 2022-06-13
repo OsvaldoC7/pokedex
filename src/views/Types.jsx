@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import SearchType from '../components/SearchType'
-import PokemonGrid from '../components/PokemonGrid'
+import Type from '../components/Type'
 
 function Types() {
 
@@ -12,7 +12,7 @@ function Types() {
       <SearchType onNewType={ type => setTypes([type, ...types]) } />
       <ul>
         {
-          types.map(type => <PokemonGrid key={type} type={type} />)
+          types.map(type => <Type key={type} type={type} />)
         }
       </ul>
     </>

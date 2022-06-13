@@ -13,5 +13,5 @@ export default function useGetPokemonsByType({ type }) {
     setDamageRelations(type.damage_relations) 
   })
 
-  return {pokemons, damageRelations}
+  return { pokemons, damageRelations }
 }
