@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import SearchType from './components/SearchType'
-import PokemonGrid from './components/PokemonGrid'
+import SearchType from '../components/SearchType'
+import PokemonGrid from '../components/PokemonGrid'
 
-function App() {
+function Types() {
 
   const [types, setTypes] = useState([])
 
@@ -19,4 +19,4 @@ function App() {
   )
 }
 
-export default App
+export default Types
