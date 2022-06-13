@@ -1,27 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { BASE_URL } from '../utils/settings'
+import React from 'react'
 import DamageRelations from './DamageRelations'
 import PokemonCard from './PokemonCard'
+import useGetPokemonsByType from '../hooks/useGetPokemosByType'
 
 export default function PokemonGrid({ type }) {
 
-  const [pokemons, setPokemons] = useState([])
-  const [damageRelations, setDamageRelations] = useState({})
-  
-  useEffect(() => {
-    getPokemonsByType()
-  }, [])
-
-  const getPokemonsByType = () => {
-    const url = `${BASE_URL}type/${type}`
-    fetch(url).then(res => 
-      res.json()
-    ).then((type) => {
-      setPokemons(type.pokemon)
-      setDamageRelations(type.damage_relations)
-      console.log(type);}
-    )
-  }
+  const { pokemons, damageRelations } = useGetPokemonsByType({ type })
   
   return (
     <div>
