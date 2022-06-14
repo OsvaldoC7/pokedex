@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import TypeBadge from './TypeBadge'
 
 export default function PokemonCard({ name, url }) {
 
@@ -12,6 +13,7 @@ export default function PokemonCard({ name, url }) {
       res.json()
     ).then((pokemonData) => {
       setPokemon(pokemonData)
+      console.log(pokemonData);
     })
   }
 
@@ -31,6 +33,13 @@ export default function PokemonCard({ name, url }) {
           <span>Imagen no disponible</span>
         </div>
       }
+      <div className="flex flex-row space-x-2 justify-center">
+        {
+          pokemon.types?.map(({ type }) => (
+            <TypeBadge type={type} />
+          ))
+        }
+      </div>
       <h2 className='text-center'>{ name }</h2>
     </div>
   )

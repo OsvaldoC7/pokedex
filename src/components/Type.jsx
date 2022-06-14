@@ -10,7 +10,7 @@ export default function Type({ type }) {
   
   return (
     <div>
-      <h3 className='text-2xl text-semibold'>{ type }</h3>
+      <h3 className={`text-2xl text-semibold text-${type}`}>{ type }</h3>
       { isLoading && <Loading /> }
       <DamageRelations damageRelations={damageRelations} />
       <PokemonGrid pokemons={pokemons} />
