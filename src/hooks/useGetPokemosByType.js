@@ -1,17 +1,21 @@
-import { BASE_URL } from "../utils/settings"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { getPokemonsByType } from "../services/getPokemonsByType"
 
 export default function useGetPokemonsByType({ type }) {
   const [pokemons, setPokemons] = useState([])
   const [damageRelations, setDamageRelations] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
 
-  const url = `${BASE_URL}type/${type}`
-  fetch(url).then(res => 
-    res.json()
-  ).then((type) => {
-    setPokemons(type.pokemon) 
-    setDamageRelations(type.damage_relations) 
-  })
+  const getPokemons = async () => {
+    const {pokemon, damage_relations} = await getPokemonsByType(type)
+    setPokemons(pokemon)
+    setDamageRelations(damage_relations)
+    setIsLoading(false)
+  }
 
-  return { pokemons, damageRelations }
+  useEffect(() => {
+    getPokemons()
+  }, [])
+
+  return { pokemons, damageRelations, isLoading }
 }

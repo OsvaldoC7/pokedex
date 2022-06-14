@@ -20,7 +20,11 @@ export default function PokemonCard({ name, url }) {
       {
         pokemon?.sprites?.front_default 
         ? 
-        <img src={pokemon?.sprites?.front_default} alt={pokemon?.forms?.name} />
+        <img 
+          alt={pokemon?.forms?.name} 
+          className='p-4'
+          src={pokemon?.sprites?.front_default} 
+        />
         :
         <div className="text-center flex flex-col">
           <span className='far fa-frown'></span>
