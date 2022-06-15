@@ -12,7 +12,7 @@ export default function DamageRelations({ damageRelations }) {
             <div className="flex flex-row space-x-2">
               {
                 damageRelations[key].map(type => (
-                    <TypeBadge type={type} />
+                    <TypeBadge key={uuidv4()} type={type} />
                   )
                 )
               }
