@@ -8,8 +8,7 @@ function Types() {
 
   return (
     <>
-      <h1>Pokedex</h1>
-      <SearchType onNewType={ type => setTypes([type, ...types]) } />
+      <SearchType onNewType={ type => setTypes([type]) } />
       <ul>
         {
           types.map(type => <Type key={type} type={type} />)
