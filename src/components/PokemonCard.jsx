@@ -14,19 +14,7 @@ export default function PokemonCard({ name, url }) {
       {
         isLoading ?
         <Loading /> :
-        <div className='flex flex-row justify-center'>
-          <div className=''>
-            <h2 className='text-center'>
-              { formatCapitalizeFirstLetter(name) }
-            </h2>
-            <div className="flex flex-col space-y-2 justify-center">
-              {
-                pokemon.types?.map(({ type }) => (
-                  <TypeBadge key={uuidv4()} type={type} />
-                ))
-              }
-            </div>
-          </div>
+        <div className='flex flex-col items-center justify-center'>
           {
             pokemon?.sprites?.front_default 
             ? 
@@ -41,6 +29,18 @@ export default function PokemonCard({ name, url }) {
               <span>Imagen no disponible</span>
             </div>
           }
+          <div className=''>
+            <h2 className='text-center'>
+              { formatCapitalizeFirstLetter(name) }
+            </h2>
+            <div className="flex flex-col space-y-2 justify-center">
+              {
+                pokemon.types?.map(({ type }) => (
+                  <TypeBadge key={uuidv4()} type={type} />
+                ))
+              }
+            </div>
+          </div>
         </div>
       }
     </div>
